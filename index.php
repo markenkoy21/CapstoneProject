@@ -1,14 +1,15 @@
 <?php
+include("connection.php");
 include("header.php");
+include("footer.php");
 $name = $course = $studentNo = $password = "";
 $nameErr = $courseErr = $studentNoErr = $passwrodErr = "";
 
 
-if($_SERVER ["REQUEST_METHOD"]== "POST"){
+if(isset($_POST["submit"])){
 
     if(empty ($_POST["name"])){
         $nameErr = "Name is required!";
-    
     
     }else{
         
@@ -23,11 +24,11 @@ if($_SERVER ["REQUEST_METHOD"]== "POST"){
         $course = $_POST["course"];
     }
     if
-    (empty($_POST["studentNo"])){
+    (empty($_POST["studentno"])){
         $studentNoErr = "Email is required!";
     }
     else{
-        $studentNo = $_POST["studentNo"];
+        $studentNo = $_POST["studentno"];
     }
     if(empty($_POST["password"])){
 
@@ -36,6 +37,37 @@ if($_SERVER ["REQUEST_METHOD"]== "POST"){
 
         $password = $_POST["password"];
     }
+
+
+
+    if($name && $course && $studentNo ){
+        
+        $check_email = mysqli_query($connections, "SELECT * FROM mytbl WHERE studentNo='$studentNo'");
+        
+        $check_email_row = mysqli_num_rows($check_email);
+
+       
+
+        if ($check_email_row > 0) {
+
+            $emailErr  = "Email is already registered!";
+        
+        }else{
+
+            $query = mysqli_query($connections, "INSERT INTO mytbl(name,course,studentNo,password)
+            
+            VALUES('$name','$course','$studentNo','$password')");
+            
+            echo "<script>alert('New record has been inserted!')</script>";
+            echo "<script>window.location.href='index.php';</script>";
+
+
+        }
+
+ 
+
+    }
+    
 }
 
 
@@ -60,7 +92,7 @@ if($_SERVER ["REQUEST_METHOD"]== "POST"){
 <h1 class="">Register</h1>
 <br>
 
-<form method="post" enctype="multipart/form-data">
+<form method="post">
 
 
     <div id="div" class="form-group col">
@@ -71,23 +103,23 @@ if($_SERVER ["REQUEST_METHOD"]== "POST"){
     <div id="div" class="form-group col">
     <select class="form-control align-middle size-5" id="course" name="course">
         <option class="" name="course" value="select_course">Course</option>
-        <option class="" name="course" value="Paid" <?php if($course == "Paid"){ echo "selected"; }?> >MAE</option>
-        <option class="" name="course" value="Unpaid" <?php if($course == "Unpaid"){ echo "selected"; }?> >MBA</option>
-        <option class="" name="course" value="Downpayment" <?php if($course == "Downpayment"){ echo "selected"; }?> >Juris Doctor</option>
-        <option class="" name="course" value="Balance" <?php if($course == "Balance"){ echo "selected"; }?> >TECP</option>
-        <option class="" name="course" value="Paid" <?php if($course == "Paid"){ echo "selected"; }?> >BSE</option>
-        <option class="" name="course" value="Unpaid" <?php if($course == "Unpaid"){ echo "selected"; }?> >BEE</option>
-        <option class="" name="course" value="Downpayment" <?php if($course == "Downpayment"){ echo "selected"; }?> >BA</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >CRIM</option>
-        <option class="" name="course" value="Paid" <?php if($course == "Paid"){ echo "selected"; }?> >NURSING</option>
-        <option class="" name="course" value="Unpaid" <?php if($course == "Unpaid"){ echo "selected"; }?> >BSBA</option>
-        <option class="" name="course" value="Downpayment" <?php if($course == "Downpayment"){ echo "selected"; }?> >BSHM</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >BSTM</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >BSA</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >BSAIS</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >BSREM</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >BSCS</option>
-        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >BSIT</option>
+        <option class="" name="course" value="MAE" <?php if($course == "MAE"){ echo "selected"; }?> >MAE</option>
+        <option class="" name="course" value="MBA" <?php if($course == "MBA"){ echo "selected"; }?> >MBA</option>
+        <option class="" name="course" value="Juris Doctor" <?php if($course == "Juris Doctor"){ echo "selected"; }?> >Juris Doctor</option>
+        <option class="" name="course" value="TECP" <?php if($course == "TECP"){ echo "selected"; }?> >TECP</option>
+        <option class="" name="course" value="BSE" <?php if($course == "BSE"){ echo "selected"; }?> >BSE</option>
+        <option class="" name="course" value="BEE" <?php if($course == "BEE"){ echo "selected"; }?> >BEE</option>
+        <option class="" name="course" value="BA" <?php if($course == "BA"){ echo "selected"; }?> >BA</option>
+        <option class="" name="course" value="CRIM" <?php if($course == "CRIM"){ echo "selected"; }?> >CRIM</option>
+        <option class="" name="course" value="NURSING" <?php if($course == "NURSING"){ echo "selected"; }?> >NURSING</option>
+        <option class="" name="course" value="BSBA" <?php if($course == "BSBA"){ echo "selected"; }?> >BSBA</option>
+        <option class="" name="course" value="BSHM" <?php if($course == "BSHM"){ echo "selected"; }?> >BSHM</option>
+        <option class="" name="course" value="BSTM" <?php if($course == "BSTM"){ echo "selected"; }?> >BSTM</option>
+        <option class="" name="course" value="BSA" <?php if($course == "BSA"){ echo "selected"; }?> >BSA</option>
+        <option class="" name="course" value="BSAIS" <?php if($course == "BSAIS"){ echo "selected"; }?> >BSAIS</option>
+        <option class="" name="course" value="BSREM" <?php if($course == "BSREM"){ echo "selected"; }?> >BSREM</option>
+        <option class="" name="course" value="BSCS" <?php if($course == "BSCS"){ echo "selected"; }?> >BSCS</option>
+        <option class="" name="course" value="BSIT" <?php if($course == "BSIT"){ echo "selected"; }?> >BSIT</option>
 
     </select>
     </div>
@@ -111,14 +143,16 @@ if($_SERVER ["REQUEST_METHOD"]== "POST"){
 
     </form>
 </div>
-
-
-
 </div>
 </center>
 
 
+
 </form>
+<hr>
+
+
 <?php
-include("footer.php");
+include("connection.php");
+
 ?>

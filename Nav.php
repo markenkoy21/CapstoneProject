@@ -9,7 +9,7 @@
   <!-- Links -->
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" href="?">home</a>
+      <a class="nav-link" href="?">Home</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="search.php">Search</a>
