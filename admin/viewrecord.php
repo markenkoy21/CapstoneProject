@@ -3,8 +3,9 @@
 session_start();
 
 include("../connection.php");
+include("header.php");
+include("Nav.php");
 
-include("nav.php");
 
 ?>
 
@@ -18,15 +19,10 @@ setInterval(function() => {
 
 
 <div id="retriever">
-<?php include("retriever.php"); 
-
-
-
-
-
-
-
+<?php
+include("retriever.php");
 ?>
 
 </div>
+
 

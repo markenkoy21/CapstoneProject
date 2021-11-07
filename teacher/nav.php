@@ -1,16 +1,18 @@
-
+<!-- <a href="index.php">Home</a> &nbsp; <a href="search.php">Search</a> &nbsp; <a href="login.php">Login</a> -->
 <nav class="navbar navbar-expand-sm bg-danger navbar-dark">
- 
+  <!-- Brand/logo -->
   <a class="navbar-brand">F&S CLEARANCESS</a>
-    <ul class="navbar-nav">
+  
+  <!-- Links -->
+  <ul class="navbar-nav">
   <li class="nav-item">
       <a class="nav-link" href="index.php">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="viewrecord.php">View Record</a>
+      <a class="nav-link" href="clearance.php">View Clearance</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../index.php">Register Account</a>
+      <a class="nav-link" href="clearance.php"></a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="../login.php">Logout</a>

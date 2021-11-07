@@ -1,0 +1,36 @@
+Account Type
+
+Admin - 1
+Signatory - 2
+Dean - 3
+Student - 4
+
+
+Signatory Type Students
+1 = department_treasurer
+2 = department_dean
+3 = librarian
+4 = coordinator_of_student_affairs
+5 = nstp
+6 = accssg_chapter_treasurer
+7 = accssg_treasurer
+8 = registrar
+9 = vp_finance
+
+SIgnatory type faculty
+1ACCFUE/ACCENT
+2 LIBRARIAN
+3 REGISTRAR
+4 OFFICE/ DEPARTMENT HEAD
+5 PROGRAM COORDINATOR
+6 DEAN/ PRINCIPAL
+7 HRD OFFICER
+8 ACCOUNTANT
+9 VP FOR ACADEMIC AFFAIRS
+10 VP FOR FINANCE ANCILLARY SERVICE
+
+Signatory Status
+0 = not requested
+1 = requested/pending
+2 = approved
+3 = declined

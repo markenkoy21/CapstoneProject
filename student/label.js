@@ -16,20 +16,20 @@ function namefocus(){
 }
 
 
-function rolenoblur(){
-    var rolenolabel = document.getElementById("rolenolabel");
-    var roleno = document.getElementById("roleno");
-    if(roleno.value == ""){
-        rolenolabel.style.opacity = 0;
+function studentnoblur(){
+    var studentnolabel = document.getElementById("studentnolabel");
+    var studentno = document.getElementById("studentno");
+    if(studentno.value == ""){
+        studentnolabel.style.opacity = 0;
     }
 }
 
-function rolenofocus(){
-    var rolenolabel = document.getElementById("rolenolabel");
-    var roleno = document.getElementById("roleno");
-    if(roleno.value == ""){
+function studentnofocus(){
+    var studentnolabel = document.getElementById("studentnolabel");
+    var studentno = document.getElementById("studentno");
+    if(studentno.value == ""){
         // alert("May sueod");
-        rolenolabel.style.opacity = 1;
+        studentnolabel.style.opacity = 1;
     }
 }
 

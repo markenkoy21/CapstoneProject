@@ -1,0 +1,23 @@
+Student Table
+
+id
+rolenumber
+department_treasurer
+department_dean
+librarian
+coordinator_of_student_affairs
+nstp
+accssg_chapter_treasurer
+accssg_treasurer
+registrar
+vp_finance
+status
+
+Signatory Status // UPDATE Query
+1 = Pending
+2 = Approved
+3 = Rejected
+
+Status // UPDATE Query
+1 = visible
+2 = archive
