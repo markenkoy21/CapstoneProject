@@ -10,7 +10,7 @@
       <a class="nav-link" href="viewrecord.php">View Record</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="../index.php">Register Account</a>
+      <a class="nav-link" href="register.php">Register Account</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="../login.php">Logout</a>

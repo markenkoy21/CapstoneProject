@@ -92,37 +92,37 @@ if(isset($_POST["registrar"])){
 }
 
 if(isset($_POST["office_department_head"])){
-  mysqli_query($connections, "UPDATE student_tbl SET office_department_head='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET office_department_head='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 
 if(isset($_POST["program_coordinator"])){
-  mysqli_query($connections, "UPDATE student_tbl SET program_coordinator='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET program_coordinator='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 
 if(isset($_POST["dean_principal"])){
-  mysqli_query($connections, "UPDATE student_tbl SET dean_principal='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET dean_principal='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 
 if(isset($_POST["hrd_officer"])){
-  mysqli_query($connections, "UPDATE student_tbl SET hrd_officer='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET hrd_officer='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 
 if(isset($_POST["accountant"])){
-  mysqli_query($connections, "UPDATE student_tbl SET accountant='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET accountant='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 
 if(isset($_POST["vp_accademic_affairs"])){
-  mysqli_query($connections, "UPDATE student_tbl SET vp_accademic_affairs='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET vp_accademic_affairs='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 
 if(isset($_POST["vp_finance_ancilllary"])){
-  mysqli_query($connections, "UPDATE student_tbl SET vp_finance_ancilllary='1' WHERE teachers_number='$role_number' ");
+  mysqli_query($connections, "UPDATE faculty_tbl SET vp_finance_ancilllary='1' WHERE teachers_number='$role_number' ");
   header("Location: ?");
 }
 

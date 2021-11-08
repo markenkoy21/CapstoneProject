@@ -83,26 +83,49 @@ if(isset($_SESSION["id"])){
 
   if(isset($_POST["department_treasurer"])){
     mysqli_query($connections, "UPDATE student_tbl SET department_treasurer='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
 
   if(isset($_POST["department_dean"])){
     mysqli_query($connections, "UPDATE student_tbl SET department_dean='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
+
   if(isset($_POST["librarian"])){
     mysqli_query($connections, "UPDATE student_tbl SET librarian='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
+
   if(isset($_POST["coordinator_of_student_affairs"])){
     mysqli_query($connections, "UPDATE student_tbl SET coordinator_of_student_affairs='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
+
   if(isset($_POST["nstp"])){
     mysqli_query($connections, "UPDATE student_tbl SET nstp='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
-  if(isset($_POST["accssg_chapter_treasurer"])){
-    mysqli_query($connections, "UPDATE student_tbl SET accssg_chapter_treasurer='1' WHERE rolenumber='$role_number' ");
+  
+  if(isset($_POST["accss_chapter_treasurer"])){
+    mysqli_query($connections, "UPDATE student_tbl SET accss_chapter_treasurer='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
+  
   if(isset($_POST["accssg_treasurer"])){
     mysqli_query($connections, "UPDATE student_tbl SET accssg_treasurer='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
   }
+
+  if(isset($_POST["registrar"])){
+    mysqli_query($connections, "UPDATE student_tbl SET registrar='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
+  }
+
+  if(isset($_POST["vp_for_finance"])){
+    mysqli_query($connections, "UPDATE student_tbl SET vp_for_finance='1' WHERE rolenumber='$role_number' ");
+    echo "<script>alert('Succesfully Requested!'); window.location.href='?'</script>";
+  }
+
 
 	echo "<tr><td><h6>";
     if($department_treasurer == "0"){
@@ -161,7 +184,7 @@ if(isset($_SESSION["id"])){
       echo "</h6></td>";
       echo "<td><h6>";
     if($accssg_chapter_treasurer == "0"){
-        echo "<form method='POST'><input type='submit' class='btn btn-success' name='accssg_chapter_treasurer' value='Request'/></form>";
+        echo "<form method='POST'><input type='submit' class='btn btn-success' name='accss_chapter_treasurer' value='Request'/></form>";
       }elseif($accssg_chapter_treasurer == "1"){
         echo "<a class='btn btn-warning' name='accssg_chapter_treasurer'>Pending</a>";
       }elseif($accssg_chapter_treasurer == "2"){

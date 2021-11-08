@@ -53,6 +53,36 @@ if(isset($_SESSION["id"])){
     case '9':
       $new_signatory_type = "vp_for_finance";
       break;
+    case '10':
+      $new_signatory_type = "accfeu_accent";
+      break;
+    case '11':
+      $new_signatory_type = "librarian";
+      break;
+    case '12':
+      $new_signatory_type = "registrar";
+      break;
+    case '13':
+      $new_signatory_type = "office_department_head";
+      break;
+    case '14':
+      $new_signatory_type = "program_coordinator";
+      break;
+    case '15':
+      $new_signatory_type = "dean_principal";
+      break;
+    case '16':
+      $new_signatory_type = "hrd_officer";
+      break;
+    case '17':
+      $new_signatory_type = "accountant";
+      break;
+    case '18':
+      $new_signatory_type = "vp_accademic_affairs";
+      break;
+    case '19':
+      $new_signatory_type = "vp_finance_ancilllary";
+      break;
   }
 
   // if($signatory_type == "1"){
@@ -74,6 +104,8 @@ if(isset($_SESSION["id"])){
   // }elseif($signatory_type == "9"){
   //   $new_signatory_type = "vp_for_finance";
   // }
+
+  // 10-19
     
     if($account_type = 3){
     
@@ -90,113 +122,22 @@ if(isset($_SESSION["id"])){
   }
 
 
-	
+	// student_clearance.php
+  // teacher_clearance.php
+  // echo $signatory_type;
 
-?>
-
-<div class="container">
-  <h2>Toggleable Pills</h2>
-  <br>
-  <!-- Nav pills -->
-  <ul class="nav nav-pills" role="tablist">
-    <li class="nav-item">
-      <a class="nav-link active" data-toggle="pill" href="#home">Teacher Clearance</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="pill" href="#menu1">Student Clearance</a>
-    </li>
-  </ul>
-
-
-  
-  <!-- Tab panes -->
-  <div class="tab-content">
-    <div id="home" class="container tab-pane active"><br>
-      <!-- Start it Teacher Clearance -->
+  switch ($signatory_type) {
+    case ($signatory_type == '1' || $signatory_type == '2' || $signatory_type == '3' || $signatory_type == '4' || $signatory_type == '5' || $signatory_type == '6' || $signatory_type == '7' || $signatory_type == '8' || $signatory_type == '9'):
+      include("student_clearance.php");
+      // echo "Student";
+      break;
     
-    </div>
-
-
-
-
-
-
-    <div id="menu1" class="container tab-pane fade"><br>
-    <!-- Start it Student Clearance -->
-    <center>
-<div class="container justify-content-center">
-<div class="table-responsive">
-  <table class="table">
-  <thead>
-      <tr>
-		    <th>Name</th>
-        <th>Year level</th>
-        <th>Student Number</th>
-        <th>Course</th>
-        <th>Action</th>
-      </tr>
-    </thead>
-    <tbody>
-
-<?php
- 
-//  echo $new_signatory_type;
-$check_student = mysqli_query($connections, "SELECT * FROM mytbl WHERE account_type='4' ");
-$fetch_student =mysqli_fetch_assoc($check_student);
-$get_student_number = $fetch_student["student_number"];
-
-
-
-  if(isset($_GET["id"])){
-    $student_number_value = $_GET["id"];
-    mysqli_query($connections, "UPDATE student_tbl SET $new_signatory_type='2' WHERE rolenumber='$student_number_value' ");
-    echo "<script>alert('Student clearance succesfully approved!');</script>";
-    // echo $get_student_number;
+    case ($signatory_type == '10' || $signatory_type == '11' || $signatory_type == '12' || $signatory_type == '13' || $signatory_type == '14' || $signatory_type == '15' || $signatory_type == '16' || $signatory_type == '17' || $signatory_type == '18' || $signatory_type == '19'):
+      include("teacher_clearance.php");
+      // echo "Teacher";
+      break;
   }
-
-$view_query = mysqli_query($connections, "SELECT * FROM mytbl WHERE account_type='4' ");
-
-
-
-// echo $check_student_status;
-while($row =mysqli_fetch_assoc($view_query)){
-
-
-  $db_name = $row["name"];
-  $db_year_level = $row["year_level"];
-  $db_student_number = $row["student_number"];
-  $db_course = $row["course"];
-
-  $get_student_status = mysqli_query($connections, "SELECT * FROM student_tbl WHERE rolenumber='$db_student_number' ");
-  $row_student_status =mysqli_fetch_assoc($get_student_status);
-  $check_student_status = $row_student_status["$new_signatory_type"];
-
-
-
-echo "<tr class='text-center'>
-<td>$db_name</td>
-<td>$db_year_level</td>
-<td>$db_student_number</td>
-<td>$db_course</td>
-<td>
-<a href='"; if($check_student_status == "1"){ echo "?id=$db_student_number";}else{ echo "?"; } echo "'  class='btn "; if($check_student_status == "1"){echo "btn-success";}elseif($check_student_status == "2"){echo "btn-info";}elseif($check_student_status == "3"){echo "btn-warning";} echo "'>"; if($check_student_status == "1"){echo "Approve";}elseif($check_student_status == "2"){echo "Approved";}elseif($check_student_status == "3"){echo "Declined";} echo "</a>&nbsp;
-<a href='' class='btn btn-danger'>Decline</a>
-</td>
-</tr>";
-}
 ?>
-
-    </tbody>
-  </table>
-</div>
-</div>
-</center>
-    </div>
-
-
-  </div>
-
-</div>
 
 
 

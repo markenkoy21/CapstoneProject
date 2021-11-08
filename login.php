@@ -240,7 +240,7 @@ if(isset($_POST["submit"])){
 		<h1 >Login</h1>
 
 		<div>
-		<img src="acc_logo.gif.png" width="250px">
+		<img src="acc_logo.png" width="250px">
 		</div>
 
 	</div>

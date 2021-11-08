@@ -13,7 +13,7 @@ if  (mysqli_connect_errno()){
 ?>
 
 <style>
-.btn-primary{
+/* .btn-primary{
 -webkit-border-radius: 0;
 -moz-broder-radius: 0;
 border-radius:0px;
@@ -24,11 +24,11 @@ background: #34d9bd;
 padding:6px 20px 8px 20px;
 text-decoration:none;
 
-}
-.btn-primary:hover{
+} */
+/* .btn-primary:hover{
 background:#4ccfb3;
 text-decoration:none;
-}
+} */
 
 .tbl-primary{
     font-family:Arial;

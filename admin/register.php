@@ -87,7 +87,11 @@
 </style>
 
 
-<?php include("Nav.php");?>
+<?php
+include("../connection.php");
+include("header.php");
+include("Nav.php");
+?>
 <br>
 <br>
 
@@ -118,8 +122,7 @@
     <br>
 
 <?php
-include("connection.php");
-include("header.php");
+
 if(isset($_GET['redirect'])){ if($_GET['redirect'] == "admin"){
 
         $admin_name = $admin_password = $account_type = "";
@@ -185,8 +188,7 @@ if(isset($_GET['redirect'])){ if($_GET['redirect'] == "admin"){
 ?>
 
 <?php
-include("connection.php");
-include("header.php");
+
 
 if(isset($_GET['redirect'])){ if($_GET['redirect'] == "signatory"){
 
@@ -411,9 +413,6 @@ if(isset($_GET['redirect'])){ if($_GET['redirect'] == "teacher"){
 if(isset($_GET['redirect'])){ if($_GET['redirect'] == "student"){
 
 
-    include("connection.php");
-    include("header.php");
-
     $student_name = $student_course = $year_level = $student_number = $student_password = "";
 
 
@@ -541,13 +540,6 @@ if(isset($_GET['redirect'])){ if($_GET['redirect'] == "student"){
 }
 ?>
 
-
-
-<?php
-include("footer.php");
-
-?>
-
 <script>
     function account_type_check(){
         let account_check = document.getElementById("account_check");
@@ -567,3 +559,9 @@ include("footer.php");
     }
 
 </script>
+
+<?php
+include("footer.php");
+
+?>
+
