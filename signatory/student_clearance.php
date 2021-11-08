@@ -23,6 +23,14 @@ $get_student_number = $fetch_student["student_number"];
 
 
 
+  if(isset($_GET["stu_dec"])){
+    $student_number_value = $_GET["stu_dec"];
+    mysqli_query($connections, "UPDATE student_tbl SET $new_signatory_type='3' WHERE rolenumber='$student_number_value' ");
+    echo "<script>alert('Student clearance succesfully approved!');</script>";
+    // echo $_GET["stu_dec"];
+  }
+
+
   if(isset($_GET["id"])){
     $student_number_value = $_GET["id"];
     mysqli_query($connections, "UPDATE student_tbl SET $new_signatory_type='2' WHERE rolenumber='$student_number_value' ");
@@ -56,7 +64,7 @@ echo "<tr class='text-center'>
 <td>$db_course</td>
 <td>
 <a href='"; if($check_student_status == "1"){ echo "?id=$db_student_number";}else{ echo "?"; } echo "'  class='btn "; if($check_student_status == "0"){echo "btn-primary";}elseif($check_student_status == "1"){echo "btn-success";}elseif($check_student_status == "2"){echo "btn-info";}elseif($check_student_status == "3"){echo "btn-warning";} echo "'>"; if($check_student_status == "0"){echo "Not yet Requested";}elseif($check_student_status == "1"){echo "Approve";}elseif($check_student_status == "2"){echo "Approved";}elseif($check_student_status == "3"){echo "Declined";} echo "</a>&nbsp;
-<a href='' class='btn btn-danger'>Decline</a>
+<a href='?stu_dec=$db_student_number' class='btn btn-danger "; if($check_student_status == "3"){ echo "d-none"; } echo "'>Decline</a>
 </td>
 </tr>";
 }
